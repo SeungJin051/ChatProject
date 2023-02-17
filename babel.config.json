@@ -1,0 +1,5 @@
+{
+  // exec = src/server.js에 대해 babel-node 명령문을 실행시킴
+  "presets": ["@babel/preset-env"]
+  // 사용할 presets
+}
