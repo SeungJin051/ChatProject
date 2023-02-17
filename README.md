@@ -82,5 +82,5 @@ nodemond 서버를 내리고 올리지 않아도 소스를 변경할 때 바로 
 <hr>
 # frist Recap
  <li>기초환경 셋팅 = Nodemon 설정을 위해 nodemon.json 생성</li>
-  <li>nodemon -> babel excec -> 작성된 코드를 NodeJS 코드로 컴파일 -> server.js -> express를 import,       어플리케이션 구성 </li>
+  <li>nodemon -> babel excec -> 작성된 코드를 NodeJS 코드로 컴파일 -> server.js -> express를 import,      어플리케이션 구성, view engine을 Pug 설정, views 디렉토리 설정 -> public 프론트 코드 -> server.js app.use = public 폴더를 유저에게 공개, app.get(~~) = 홈페이지 이동시 사용될 템플릿을 렌더 </li>
 </ul>
