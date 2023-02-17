@@ -48,6 +48,7 @@ res.json() : 클라이언트에 json을 만든다.
 res.redirect() : 페이지를 이동시킨다.
 
 ### What is =>?
+
 화살표 함수 표현(arrow function expression)
 
               ex)
@@ -60,8 +61,9 @@ res.redirect() : 페이지를 이동시킨다.
 
               console.log(materials.map(material => material.length));
               // Expected output: Array [8, 6, 7, 9]
-              
+
 ### What is package.json?
+
 기본적으로 package.json은 프로젝트에 대한 설정파일
 node.js에서 표준이라고 보는 npm을 잘 알고 쓸 수 있도록 필요함
 
@@ -72,7 +74,13 @@ npm은 node.js에서 사용하는 모듈들을 패키지로 만들어 관리하�
 그래서 개발자가 배포한 패키지에 대해 다른 사람들이 관리하고 설치하기 쉽게 하기 위한 문서이다.
 npm에 패키지를 배포하고 npm registry에 올리기 위해서 반드시 필요한 문서파일이다.
 
-### What is nodemon? 
-node 서버를 이용하면서 코드를 변경하게 될 경우, 변경한 코드를 웹 상에서 확인하려면 서버를 껐다가 다시 켜야 변화를 감지할 수 있다. 
+### What is nodemon?
+
+node 서버를 이용하면서 코드를 변경하게 될 경우, 변경한 코드를 웹 상에서 확인하려면 서버를 껐다가 다시 켜야 변화를 감지할 수 있다.
 nodemond 서버를 내리고 올리지 않아도 소스를 변경할 때 바로 감지해서 자동으로 서버를 재시작 해주는 도구이다.
 
+<hr>
+# frist Recap
+ <li>기초환경 셋팅 = Nodemon 설정을 위해 nodemon.json 생성</li>
+  <li>nodemon -> babel excec -> 작성된 코드를 NodeJS 코드로 컴파일 -> server.js -> express를 import,       어플리케이션 구성 </li>
+</ul>
