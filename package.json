@@ -1,0 +1,28 @@
+{
+  "name": "zoomproject",
+  "version": "1.0.0",
+  "description": "ZoomProject using WebRTC and Websockets",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SeungJin051/ZoomProject.git"
+  },
+  "license": "ISC",
+  "scripts": {
+    "dev": "nodemon;"
+  },
+  "bugs": {
+    "url": "https://github.com/SeungJin051/ZoomProject/issues"
+  },
+  "homepage": "https://github.com/SeungJin051/ZoomProject#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.20.7",
+    "@babel/core": "^7.20.12",
+    "@babel/node": "^7.20.7",
+    "@babel/preset-env": "^7.20.2",
+    "nodemon": "^2.0.20"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "pug": "^3.0.2"
+  }
+}
