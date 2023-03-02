@@ -17,10 +17,14 @@ const handleListen = () => console.log(`Listening on http://localhost:3000`); //
 const server = http.createServer(app); // http server
 const wss = new WebSocket.Server({ server }); // ws server { 전달 server }
 
-function handleConnection(socket) {
-  console.log(socket);
-}
-
-wss.on("connection", handleConnection);
+// 연결을 해서 socket을 알 수 있음. / backend와 연결된 브라우저에 대해 작동
+wss.on("connection", (socket) => {
+  console.log("서버 연결 성공!");
+  socket.on("close", () => console.log("브라우저 연결 해제!"));
+  socket.on("message", (message) => {
+    console.log(message.toString("utf8"));
+  });
+  socket.send("HELLO~~");
+});
 
 server.listen(3000, handleListen);
