@@ -19,12 +19,14 @@ socket.addEventListener("message", (message) => {
   const li = document.createElement("li");
   li.innerText = message.data;
   messageList.append(li);
-
-  // const likesBtn = document.createElement("button");
-  // const count = 0;
-  // likesBtn.innerText = count;
-  // messageList.append(likesBtn);
-  // likesBtn.addEventListener("click", () => {});
+  //
+  const likesBtn = document.createElement("button");
+  let count = 0;
+  likesBtn.innerText = count;
+  messageList.append(likesBtn);
+  likesBtn.addEventListener("click", () => {
+    likesBtn.innerText = count++;
+  });
 });
 
 socket.addEventListener("close", () => {
