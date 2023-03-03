@@ -19,13 +19,13 @@ socket.addEventListener("message", (message) => {
   const li = document.createElement("li");
   li.innerText = message.data;
   messageList.append(li);
-  //
+  // btn append => Del
   const likesBtn = document.createElement("button");
   let count = 0;
   likesBtn.innerText = count;
   messageList.append(likesBtn);
   likesBtn.addEventListener("click", () => {
-    likesBtn.innerText = count++;
+    likesBtn.innerText = ++count;
   });
 });
 
