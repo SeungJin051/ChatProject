@@ -92,14 +92,14 @@ nodemond 서버를 내리고 올리지 않아도 소스를 변경할 때 바로 
 back-end = websoket server (wss) = 서버
 wss.connection이라는 이벤트를 listen하고 있음
 
-(front-end가 연결하기 위해 필수로 해야 하는 것은 아님.)
-(하지만 아무 반응을 하지 않고 있기 때문에 event를 listen !) connection event가 발생하면 반응
--> 누가 연결했는지 알 수 있다
--> wss.on("connection", (socket) => { JS는 방금 연결괸 socket을 넣어준다
--> 브라우저마다 연결된 socket에서 이벤트를 listen 할 수 있다
--> socket.on("close" -> 브라우저가 닫히면 무언가 ~를 해준다 (socket의 event listener -> back-end와 연결한 각 브라우저를 위한 것),
-socket.on("message" -> 특정 socket에서 메시지를 받았을 때 발생... 등
--> 브라우저가 내 서버에 들어오면 wss.on... 실행
-const socket = new WebSocket(`ws://${window.location.host}`); => back-end와 connection을 열어 주고 있다
-그리고 이벤트 리스너를 추가함(front-end)
+(front-end가 연결하기 위해 필수로 해야 하는 것은 아님.) <br>
+(하지만 아무 반응을 하지 않고 있기 때문에 event를 listen !) connection event가 발생하면 반응 <br>
+-> 누가 연결했는지 알 수 있다 <br>
+-> wss.on("connection", (socket) => { JS는 방금 연결괸 socket을 넣어준다 <br>
+-> 브라우저마다 연결된 socket에서 이벤트를 listen 할 수 있다 <br>
+-> socket.on("close" -> 브라우저가 닫히면 무언가 ~를 해준다 (socket의 event listener -> back-end와 연결한 각 브라우저를 위한 것),<br>
+socket.on("message" -> 특정 socket에서 메시지를 받았을 때 발생... 등 <br>
+-> 브라우저가 내 서버에 들어오면 wss.on... 실행 <br>
+const socket = new WebSocket(`ws://${window.location.host}`); => back-end와 connection을 열어 주고 있다 <br>
+그리고 이벤트 리스너를 추가함(front-end) <br>
 ** 똑같이 생겼기 때문에 back-end의 일과 front-end의 일을 구분 하는 것이 중요 !! **
