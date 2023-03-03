@@ -8,7 +8,13 @@ html(lang="en")
         <link rel="stylesheet" href="https://unpkg.com/mvp.css@1.12/mvp.css"> 
     body 
         header 
-            h1 Zoom
+            //- h1 Zoom
         main
-            h2 Welcome to Zoom
+            form#nickName
+                input(type="text", placeholder="별명을 입력하세요.", required)
+                button 저장
+            ul 
+            form#message
+                input(type="text", placeholder="메세지를 입력하세요.", required)
+                button 전송
         script(src="/public/js/app.js") 
