@@ -2,6 +2,7 @@ import http from "http";
 import WebSocket from "ws";
 import express from "express";
 import { type } from "os";
+import { parse } from "path";
 
 const app = express();
 
@@ -23,11 +24,27 @@ const socketsPax = [];
 // wss = back-end
 wss.on("connection", (socket) => {
   socketsPax.push(socket);
+  socket["nick_name"] = "Anonymous";
   console.log("서버 연결 성공!");
   socket.on("close", () => console.log("브라우저 연결 해제!"));
-  socket.on("message", (message) => {
+  socket.on("message", (msg) => {
     //console.log(message.toString("utf-8"));
-    socketsPax.forEach((aSocket) => aSocket.send(message.toString()));
+    const message = JSON.parse(msg);
+
+    // if else
+    switch (message.type) {
+      case "new_message":
+        socketsPax.forEach((aSocket) =>
+          aSocket.send(
+            `${socket.nick_name.toString()}: ${message.payload.toString()}`
+          )
+        );
+        break;
+
+      case "nick_name":
+        socket["nick_name"] = message.payload;
+        break;
+    }
   });
 });
 
