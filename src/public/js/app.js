@@ -15,17 +15,17 @@ socket.addEventListener("open", () => {
 });
 
 socket.addEventListener("message", (message) => {
-  console.log("새로운 메세지 :", message.data, "를 서버로 부터 받아왔습니다.");
-  const li = document.createElement("li");
-  li.innerText = message.data;
-  messageList.append(li);
-  // btn append => Del
-  const likesBtn = document.createElement("button");
-  let count = 0;
-  likesBtn.innerText = count;
-  messageList.append(likesBtn);
-  likesBtn.addEventListener("click", () => {
-    likesBtn.innerText = ++count;
+  // console.log("새로운 메세지 :", message.data, "를 서버로 부터 받아왔습니다.");
+  // like
+  const likesBtn = document.createElement("span");
+  const li = document.querySelector("li");
+  likesBtn.id = "like";
+  li.addEventListener("dblclick", () => {
+    messageList.append(likesBtn);
+    likesBtn.innerText = "❤️";
+  });
+  likesBtn.addEventListener("dblclick", () => {
+    likesBtn.innerText = "";
   });
 });
 
@@ -38,6 +38,9 @@ function handleSubmit(event) {
   event.preventDefault();
   const messageInput = messageForm.querySelector("input");
   socket.send(makeMessage("new_message", messageInput.value));
+  const li = document.createElement("li");
+  li.innerText = `You: ${messageInput.value}`;
+  messageList.append(li);
   messageInput.value = "";
 }
 
@@ -48,6 +51,8 @@ function handleNickNameSubmit(event) {
   // socket.send(NickNameInput.value);
   // json 형식으로
   socket.send(makeMessage("nick_name", NickNameInput.value));
+  alert(`현재 별명은  ${NickNameInput.value}입니다.`);
+  messageInput.value = "";
 }
 
 messageForm.addEventListener("submit", handleSubmit);
