@@ -1,7 +1,7 @@
 import http from "http";
-import WebSocket from "ws";
+import { Server } from "socket.io";
+// import WebSocket from "ws"; ->  websocket
 import express from "express";
-import { type } from "os";
 
 const app = express();
 
@@ -16,9 +16,16 @@ const handleListen = () => console.log(`Listening on http://localhost:3000`); //
 
 // -- same server http 서버에 접근 & http 위에 ws 서버를 만듬
 const server = http.createServer(app); // http server
-const wss = new WebSocket.Server({ server }); // ws server { 전달 server }
+const io = new Server(server);
 
-const socketsPax = [];
+// connection 받을 준비
+io.on("connection", (socket) => {
+  console.log(socket);
+});
+
+// const wss = new WebSocket.Server({ server }); // ws server { 전달 server }
+// ********** websocket code **********
+/* const socketsPax = []; 
 // 연결을 해서 socket을 알 수 있음. / backend와 연결된 브라우저에 대해 작동
 // wss = back-end
 wss.on("connection", (socket) => {
@@ -41,16 +48,6 @@ wss.on("connection", (socket) => {
         break;
     }
   });
-});
+}); */
 
 server.listen(3000, handleListen);
-
-{
-  type: "message";
-  payload: "hello everyone";
-}
-
-{
-  type: "nickname";
-  payload: "jin";
-}
