@@ -10,11 +10,6 @@ html(lang="en")
         header 
             //- h1 Zoom
         main
-            form#nickName
-                input(type="text", placeholder="별명을 입력하세요.", required)
-                button 저장
-            ul 
-            form#message
-                input(type="text", placeholder="메세지를 입력하세요.", required)
-                button 전송
+            
+        script(src="/socket.io/socket.io.js") 
         script(src="/public/js/app.js") 
