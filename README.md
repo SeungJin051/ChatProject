@@ -1,4 +1,4 @@
-# ZoomProject
+# ChatProject
 
 NodeJS, WebRTC, Websockets
 
