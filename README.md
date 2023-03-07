@@ -103,3 +103,9 @@ socket.on("message" -> 특정 socket에서 메시지를 받았을 때 발생... 
 const socket = new WebSocket(`ws://${window.location.host}`); => back-end와 connection을 열어 주고 있다 <br>
 그리고 이벤트 리스너를 추가함(front-end) <br>
 ** 똑같이 생겼기 때문에 back-end의 일과 front-end의 일을 구분 하는 것이 중요 !! **
+
+# third Recap
+
+emit()의 arguments = 여러개의 payload(back-end 전송)가 가능하다. <br>
+socket.emit과 socket.on 에는 같은 이름을 사용 <br>
+socket.emit의 마지막은 항상 funstion!! <br>
