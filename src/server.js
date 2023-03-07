@@ -20,7 +20,12 @@ const io = new Server(server);
 
 // connection 받을 준비
 io.on("connection", (socket) => {
-  console.log(socket);
+  socket.onAny((event) => {
+    console.log(`Socket Event: ${event}`);
+  });
+  socket.on("enter_room", (roomName, done) => {
+    socket.join(roomName);
+  });
 });
 
 // const wss = new WebSocket.Server({ server }); // ws server { 전달 server }
