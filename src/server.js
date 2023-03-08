@@ -26,6 +26,7 @@ io.on("connection", (socket) => {
   socket.on("enter_room", (roomName, done) => {
     socket.join(roomName);
     done(); // 서버에서 프론트 코드를 실행
+    socket.to(roomName).emit("welcome");
   });
 });
 
